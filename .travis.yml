@@ -30,6 +30,7 @@ install:
 - wget https://poppler.freedesktop.org/$POPPLER.tar.xz
 - tar --xz --extract --file=$POPPLER.tar.xz
 - ls
+- printenv DTESTDATADIR
 - ls $DTESTDATADIR
 - cd $POPPLER
 - ls 
