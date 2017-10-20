@@ -37,8 +37,8 @@ install:
 - cd $POPPLER
 - ls --color
 - cat INSTALL
-- git clone git://git.freedesktop.org/git/poppler/test
-- ls --color
+# - git clone git://git.freedesktop.org/git/poppler/test
+- ./configure --help # there is a configure in 0.23.4
 - mkdir build
 - cd build/
 - cmake .. -DCMAKE_INSTALL_PREFIX=/tmp
