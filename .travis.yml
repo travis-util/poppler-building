@@ -5,7 +5,7 @@ compiler:
 env:
   global:
   - POPPLER_DATA=poppler-data-0.4.8
-  - DTESTDATADIR=$POPPLER_DATA
+  - DTESTDATADIR=`pwd`/$POPPLER_DATA
   matrix:
   # - POPPLER=poppler-0.60.1
   # - POPPLER=poppler-0.48.0 # Travis libglib2.0-dev is too old
@@ -30,6 +30,7 @@ install:
 - wget https://poppler.freedesktop.org/$POPPLER.tar.xz
 - tar --xz --extract --file=$POPPLER.tar.xz
 - ls
+- ls $DTESTDATADIR
 - cd $POPPLER
 - ls 
 - cat INSTALL
