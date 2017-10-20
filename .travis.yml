@@ -1,6 +1,8 @@
 language: c
 env:
-- POPPLER=poppler-0.60.1
+# - POPPLER=poppler-0.60.1
+# - POPPLER=poppler-0.48.0 # Travis libglib2.0-dev is too old
+- POPPLER=poppler-0.47.0
 addons:
   apt:
     sources:
@@ -9,7 +11,7 @@ addons:
     # as requested by configure
     # - libopenjp2-7-dev # since Ubuntu 16.04
     - libopenjpeg-dev
-    - libglib2.0-dev # optional
+    # - libglib2.0-dev # optional
     # - zlib1g-dev not the right one
     # - gcc-4.9
 install:
@@ -27,3 +29,6 @@ install:
 script:
 - make && make install
 
+# poppler-0.60.1
+# poppler-0.48.0
+# Needs GLib 2.41 (2.40 in Ubuntu 14.04)
