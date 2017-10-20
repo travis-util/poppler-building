@@ -9,6 +9,8 @@ addons:
     # as requested by configure
     # - libopenjp2-7-dev # since Ubuntu 16.04
     - libopenjpeg-dev
+    - libglib2.0-dev # optional
+    - zlib1g-dev
     # - gcc-4.9
 install:
 - wget https://poppler.freedesktop.org/$POPPLER.tar.xz
