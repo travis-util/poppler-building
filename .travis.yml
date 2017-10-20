@@ -5,7 +5,7 @@ compiler:
 env:
   global:
   - POPPLER_DATA=poppler-data-0.4.8
-  - DTESTDATADIR=`pwd`/$POPPLER_DATA
+  - DTESTDATADIR=/home/travis/build/travis-util/poppler-building/$POPPLER_DATA
   matrix:
   # - POPPLER=poppler-0.60.1
   # - POPPLER=poppler-0.48.0 # Travis libglib2.0-dev is too old
