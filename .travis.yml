@@ -32,9 +32,9 @@ install:
 - tar --xz --extract --file=$POPPLER.tar.xz
 - git clone git://git.freedesktop.org/git/poppler/test
 - ls --color
-- printenv TESTDATADIR
+# - printenv TESTDATADIR
+# - ls --color $TESTDATADIR
 - printenv testdatadir
-- ls --color $TESTDATADIR
 - cd $POPPLER
 - ls --color
 - cat INSTALL
