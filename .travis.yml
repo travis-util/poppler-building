@@ -21,7 +21,7 @@ install:
 - cat INSTALL
 - mkdir build
 - cd build/
-- cmake ..
+- cmake .. -DCMAKE_INSTALL_PREFIX=/tmp
 
 script:
 - make && make install
