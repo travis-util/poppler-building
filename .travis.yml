@@ -5,7 +5,8 @@ compiler:
 env:
 # - POPPLER=poppler-0.60.1
 # - POPPLER=poppler-0.48.0 # Travis libglib2.0-dev is too old
-- POPPLER=poppler-0.47.0 POPPLER_DATA=poppler-data-0.4.8
+# - POPPLER=poppler-0.47.0 POPPLER_DATA=poppler-data-0.4.8
+- POPPLER=poppler-0.23.4 POPPLER_DATA=poppler-data-0.4.8
 addons:
   apt:
     sources:
@@ -20,6 +21,7 @@ addons:
 install:
 - apt-cache policy libglib2.0-dev
 - wget https://poppler.freedesktop.org/$POPPLER_DATA.tar.gz
+- tar --gzip --extract --file=$POPPLER_DATA.tar.gz
 - wget https://poppler.freedesktop.org/$POPPLER.tar.xz
 - tar --xz --extract --file=$POPPLER.tar.xz
 - ls
