@@ -5,7 +5,7 @@ compiler:
 env:
   global:
   - POPPLER_DATA=poppler-data-0.4.8
-  - DTESTDATADIR=/home/travis/build/travis-util/poppler-building/$POPPLER_DATA
+  - TESTDATADIR=/home/travis/build/travis-util/poppler-building/$POPPLER_DATA
   matrix:
   # - POPPLER=poppler-0.60.1
   # - POPPLER=poppler-0.48.0 # Travis libglib2.0-dev is too old
@@ -30,8 +30,9 @@ install:
 - wget https://poppler.freedesktop.org/$POPPLER.tar.xz
 - tar --xz --extract --file=$POPPLER.tar.xz
 - ls
-- printenv DTESTDATADIR
-- ls $DTESTDATADIR
+- printenv TESTDATADIR
+- ls $TESTDATADIR
+- ls --color $TESTDATADIR
 - cd $POPPLER
 - ls 
 - cat INSTALL
