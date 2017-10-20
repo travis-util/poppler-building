@@ -1,0 +1,24 @@
+language: c
+env:
+- POPPLER=poppler-0.60.1
+addons:
+  apt:
+    sources:
+    # - ubuntu-toolchain-r-test
+    packages:
+    # as requested by configure
+    # - gcc-4.9
+install:
+- wget https://poppler.freedesktop.org/$POPPLER.tar.xz
+- tar --xz --extract --file=$POPPLER.tar.xz
+- ls
+- cd $POPPLER
+- ls 
+- cat INSTALL
+- mkdir build
+- cd build/
+- cmake ..
+
+script:
+- make && make install
+
