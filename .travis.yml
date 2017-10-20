@@ -1,8 +1,11 @@
 language: c
+compiler:
+  - clang
+  - gcc
 env:
 # - POPPLER=poppler-0.60.1
 # - POPPLER=poppler-0.48.0 # Travis libglib2.0-dev is too old
-- POPPLER=poppler-0.47.0
+- POPPLER=poppler-0.47.0 POPPLER_DATA=poppler-data-0.4.8
 addons:
   apt:
     sources:
@@ -11,11 +14,12 @@ addons:
     # as requested by configure
     # - libopenjp2-7-dev # since Ubuntu 16.04
     - libopenjpeg-dev
-    # - libglib2.0-dev # optional
+    - libgtk-3-dev # optional
     # - zlib1g-dev not the right one
     # - gcc-4.9
 install:
-- apt-cache policy libglib2.0-dev libgio2.0-cil-dev
+- apt-cache policy libglib2.0-dev
+- wget https://poppler.freedesktop.org/$POPPLER_DATA.tar.gz
 - wget https://poppler.freedesktop.org/$POPPLER.tar.xz
 - tar --xz --extract --file=$POPPLER.tar.xz
 - ls
