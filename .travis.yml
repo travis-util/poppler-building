@@ -7,6 +7,8 @@ addons:
     # - ubuntu-toolchain-r-test
     packages:
     # as requested by configure
+    # - libopenjp2-7-dev # since Ubuntu 16.04
+    - libopenjpeg-dev
     # - gcc-4.9
 install:
 - wget https://poppler.freedesktop.org/$POPPLER.tar.xz
