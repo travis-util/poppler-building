@@ -3,10 +3,14 @@ compiler:
   - clang
   - gcc
 env:
-# - POPPLER=poppler-0.60.1
-# - POPPLER=poppler-0.48.0 # Travis libglib2.0-dev is too old
-# - POPPLER=poppler-0.47.0 POPPLER_DATA=poppler-data-0.4.8
-- POPPLER=poppler-0.23.4 POPPLER_DATA=poppler-data-0.4.8
+  global:
+  - POPPLER_DATA=poppler-data-0.4.8
+  matrix:
+  # - POPPLER=poppler-0.60.1
+  # - POPPLER=poppler-0.48.0 # Travis libglib2.0-dev is too old
+  # - POPPLER=poppler-0.47.0
+  - POPPLER=poppler-0.23.4
+  # https://poppler.freedesktop.org/releases.html
 addons:
   apt:
     sources:
