@@ -44,7 +44,7 @@ install:
 - cmake .. -DCMAKE_INSTALL_PREFIX=/tmp
 
 script:
-- make && make install
+- make && make install && make test
 
 # poppler-0.60.1
 # poppler-0.48.0
