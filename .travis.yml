@@ -26,12 +26,7 @@ addons:
     # - zlib1g-dev not the right one
     # - gcc-4.9
 before_install:
-- cat /etc/os-release
-- source /etc/os-release
-- echo $VERSION
-- echo "toto"
 - source /etc/os-release ; echo $VERSION
-
 - apt-cache policy libglib2.0-dev
 install:
 - wget https://poppler.freedesktop.org/$POPPLER_DATA.tar.gz
