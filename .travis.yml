@@ -28,9 +28,9 @@ addons:
 before_install:
 - cat /etc/os-release
 - source /etc/os-release
-- printenv VERSION
+- echo $VERSION
+- echo "toto"
 - source /etc/os-release ; echo $VERSION
-
 
 - apt-cache policy libglib2.0-dev
 install:
