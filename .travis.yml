@@ -51,4 +51,4 @@ script:
 
 # poppler-0.60.1
 # poppler-0.48.0
-# Needs GLib 2.41 (2.40 in Ubuntu 14.04)
+# Needs GLib 2.41 (2.40.2 in Ubuntu 14.04)
