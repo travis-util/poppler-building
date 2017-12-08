@@ -1,5 +1,5 @@
 language: c
-group: travis_latest
+group: edge # travis_latest
 compiler:
   - clang
   - gcc
