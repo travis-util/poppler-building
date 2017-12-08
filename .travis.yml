@@ -26,7 +26,7 @@ addons:
     # - gcc-4.9
 before_install:
 - cat /etc/os-release
-- ls /etc/*_version
+- cat /etc/debian_version
 - apt-cache policy libglib2.0-dev
 install:
 - wget https://poppler.freedesktop.org/$POPPLER_DATA.tar.gz
