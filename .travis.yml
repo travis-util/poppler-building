@@ -1,18 +1,18 @@
-dist: xenial
+# dist: xenial
+# group: edge
 language: c
-group: edge
 #^ travis_latest
 compiler:
   - clang
-  - gcc
+  # - gcc
 env:
   global:
   - POPPLER_DATA=poppler-data-0.4.8
   # - TESTDATADIR=/home/travis/build/travis-util/poppler-building/$POPPLER_DATA
   - testdatadir=/home/travis/build/travis-util/poppler-building/test
   matrix:
-  # - POPPLER=poppler-0.60.1
-  # - POPPLER=poppler-0.48.0 # Travis libglib2.0-dev is too old
+  - POPPLER=poppler-0.60.1
+  - POPPLER=poppler-0.48.0 # Travis libglib2.0-dev is too old
   # - POPPLER=poppler-0.47.0
   - POPPLER=poppler-0.23.4
   # https://poppler.freedesktop.org/releases.html
@@ -20,11 +20,13 @@ addons:
   apt:
     sources:
     # - ubuntu-toolchain-r-test
+    - debian-sid # This is ok for packages with little dependencies like libmount-dev, but not for clang!
     packages:
     # as requested by configure
     # - libopenjp2-7-dev # since Ubuntu 16.04
     - libopenjpeg-dev
     - libgtk-3-dev # optional
+    - libglib2.0-dev
     # - zlib1g-dev not the right one
     # - gcc-4.9
 before_install:
