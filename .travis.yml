@@ -20,7 +20,9 @@ env:
 
 
   matrix:
-  - POPPLER=poppler-0.62.0
+  - POPPLER=poppler-0.62.0 # Requires:
+    # Install libopenjpeg2 before trying to build poppler.  You can also decide
+    # to use the internal unmaintained JPX decoder or none at all.
   # - POPPLER=poppler-0.60.1
   # - POPPLER=poppler-0.48.0 # Travis libglib2.0-dev is too old
   # - POPPLER=poppler-0.47.0
@@ -32,14 +34,14 @@ addons:
   apt:
     sources:
     # - ubuntu-toolchain-r-test
-    # - debian-sid # This is ok for packages with little dependencies like libmount-dev, but not for clang!
+    - debian-sid # This is ok for packages with little dependencies like libmount-dev, but not for clang!
     packages:
     # as requested by configure
-    # - libopenjp2-7-dev # since Ubuntu 16.04
+    - libopenjp2-7-dev # since Ubuntu 16.04 (libopenjpeg2 for poppler-0.62.0)
     - libopenjpeg-dev
     - libgtk-3-dev # optional
-    # - libglib2.0-dev # now compiled here
-    - libmount-dev # to compile libglib2.0-dev
+    - libglib2.0-dev # now compiled here
+    # - libmount-dev # to compile libglib2.0-dev
     # - zlib1g-dev not the right one
 
 
@@ -51,14 +53,14 @@ before_install:
 - pip install --user psutil
 - JOBS="$(python -c 'import psutil ; print len(psutil.Process().cpu_affinity())')" # 2 jobs at a time in make
 
-- wget http://ftp.gnome.org/pub/gnome/sources/glib/$GLIB_VERSION/$GLIB.tar.xz # 2.1s
-# - wget https://git.gnome.org/browse/glib/snapshot/$GLIB.tar.xz # 35s
-- tar --xz --extract --file=$GLIB.tar.xz
-- pushd $GLIB
-- ./configure --help
-- ./configure --prefix=$PREFIX
-- make --jobs=$JOBS && make install --jobs=$JOBS
-- popd
+# - wget http://ftp.gnome.org/pub/gnome/sources/glib/$GLIB_VERSION/$GLIB.tar.xz # 2.1s
+# # - wget https://git.gnome.org/browse/glib/snapshot/$GLIB.tar.xz # 35s
+# - tar --xz --extract --file=$GLIB.tar.xz
+# - pushd $GLIB
+# - ./configure --help
+# - ./configure --prefix=$PREFIX
+# - make --jobs=$JOBS && make install --jobs=$JOBS
+# - popd
 
 install:
 - wget https://poppler.freedesktop.org/$POPPLER_DATA.tar.gz
