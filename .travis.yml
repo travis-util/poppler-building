@@ -1,6 +1,6 @@
 # dist: xenial
 # group: edge
-language: c
+language: cpp
 #^ travis_latest
 compiler:
   - clang
@@ -19,7 +19,7 @@ env:
   - GLIB=glib-2.55.0  GLIB_VERSION=2.55
 
 
-matrix:
+  matrix:
   # - POPPLER=poppler-0.60.1
   # - POPPLER=poppler-0.48.0 # Travis libglib2.0-dev is too old
   # - POPPLER=poppler-0.47.0
