@@ -20,8 +20,9 @@ env:
 
 
   matrix:
+  - POPPLER=poppler-0.62.0
   # - POPPLER=poppler-0.60.1
-  # - POPPLER=poppler-0.48.0 # Travis libglib2.0-dev is too old
+  - POPPLER=poppler-0.48.0 # Travis libglib2.0-dev is too old
   # - POPPLER=poppler-0.47.0
   - POPPLER=poppler-0.23.4
   # https://poppler.freedesktop.org/releases.html
