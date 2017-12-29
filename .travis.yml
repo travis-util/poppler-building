@@ -39,9 +39,9 @@ addons:
     # as requested by configure
     - libopenjp2-7-dev # since Ubuntu 16.04 (libopenjpeg2 for poppler-0.62.0)
     - libopenjpeg-dev
-    - libgtk-3-dev # optional
-    - libglib2.0-dev # now compiled here
-    # - libmount-dev # to compile libglib2.0-dev
+    # - libgtk-3-dev # optional
+    # - libglib2.0-dev # now compiled here
+    - libmount-dev # to compile libglib2.0-dev
     # - zlib1g-dev not the right one
 
 
