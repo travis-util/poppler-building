@@ -82,6 +82,7 @@ install:
 
 script:
 - make --jobs=$JOBS && make test --jobs=$JOBS && make install --jobs=$JOBS
+- ls $PKG_CONFIG_PATH
 - echo $JOBS
 
 # poppler-0.60.1
