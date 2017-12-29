@@ -57,7 +57,7 @@ before_install:
 - ./configure --help
 - ./configure --prefix=$PREFIX
 - make --jobs=$JOBS && make install --jobs=$JOBS
--popd
+- popd
 
 install:
 - wget https://poppler.freedesktop.org/$POPPLER_DATA.tar.gz
