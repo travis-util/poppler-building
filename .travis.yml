@@ -1,6 +1,6 @@
 dist: xenial
-group: edge
-#^ travis_latest
+# group: edge???
+group: travis_latest
 language: cpp
 compiler:
   - clang
