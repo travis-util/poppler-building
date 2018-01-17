@@ -34,7 +34,7 @@ addons:
   apt:
     sources:
     # - ubuntu-toolchain-r-test
-    - debian-sid # This is ok for packages with little dependencies like libmount-dev, but not for clang!
+    # - debian-sid # This is ok for packages with little dependencies like libmount-dev, but not for clang!
     packages:
     # as requested by configure
     - libopenjp2-7-dev # since Ubuntu 16.04 (libopenjpeg2 for poppler-0.62.0)
