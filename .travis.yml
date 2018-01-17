@@ -1,7 +1,7 @@
-# dist: xenial
-# group: edge
-language: cpp
+dist: xenial
+group: edge
 #^ travis_latest
+language: cpp
 compiler:
   - clang
   # - gcc
