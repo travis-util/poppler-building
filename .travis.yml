@@ -82,6 +82,7 @@ install:
 
 script:
 - make --jobs=$JOBS && make test --jobs=$JOBS && make install --jobs=$JOBS
+- cat /proc/loadavg
 - ls -rtl $PKG_CONFIG_PATH
 - echo $JOBS
 
