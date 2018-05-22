@@ -53,8 +53,8 @@ before_install:
 - pip install --user psutil
 - JOBS="$(python -c 'import psutil ; print len(psutil.Process().cpu_affinity())')" # 2 jobs at a time in make
 
-- wget http://ftp.gnome.org/pub/gnome/sources/glib/$GLIB_VERSION/$GLIB.tar.xz # 2.1s
-# - wget https://git.gnome.org/browse/glib/snapshot/$GLIB.tar.xz # 35s
+- wget --quiet http://ftp.gnome.org/pub/gnome/sources/glib/$GLIB_VERSION/$GLIB.tar.xz # 2.1s
+# - wget --quiet https://git.gnome.org/browse/glib/snapshot/$GLIB.tar.xz # 35s
 - tar --xz --extract --file=$GLIB.tar.xz
 - pushd $GLIB
 - ./configure --help
@@ -63,9 +63,9 @@ before_install:
 - popd
 
 install:
-- wget https://poppler.freedesktop.org/$POPPLER_DATA.tar.gz
+- wget --quiet https://poppler.freedesktop.org/$POPPLER_DATA.tar.gz
 - tar --gzip --extract --file=$POPPLER_DATA.tar.gz
-- wget https://poppler.freedesktop.org/$POPPLER.tar.xz
+- wget --quiet https://poppler.freedesktop.org/$POPPLER.tar.xz
 - tar --xz --extract --file=$POPPLER.tar.xz
 - git clone git://git.freedesktop.org/git/poppler/test
 - ls --color
@@ -82,6 +82,8 @@ install:
 
 script:
 - make --jobs=$JOBS && make test --jobs=$JOBS && make install --jobs=$JOBS
+
+after_script:
 - cat /proc/loadavg
 - echo $JOBS
 - ls -rtl $PKG_CONFIG_PATH
